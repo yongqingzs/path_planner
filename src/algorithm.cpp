@@ -168,7 +168,7 @@ Node3D* Algorithm::hybridAStar(Node3D& start,
 
           if (nSucc != nullptr && *nSucc == goal) {
             //DEBUG
-            // std::cout << "max diff " << max << std::endl;
+            std::cout << "dubinsShot nSucc" << std::endl;
             return nSucc;
           }
         }
@@ -502,13 +502,13 @@ Node3D* dubinsShot(Node3D& start, const Node3D& goal, CollisionDetection& config
       x += Constants::dubinsStepSize;
       i++;
     } else {
-      //      std::cout << "Dubins shot collided, discarding the path" << "\n";
+      // std::cout << "Dubins shot collided, discarding the path" << "\n";
       // delete all nodes
       delete [] dubinsNodes;
       return nullptr;
     }
   }
 
-  //  std::cout << "Dubins shot connected, returning the path" << "\n";
+  std::cout << "Dubins shot connected, returning the path" << "\n";
   return &dubinsNodes[i - 1];
 }

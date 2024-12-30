@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(hybrid_astar)
-
+cmake_policy(SET CMP0048 NEW)
+project(hybrid_astar VERSION 1.0.0)
 
 ## C++11
 include(CheckCXXCompilerFlag)
@@ -21,19 +21,43 @@ find_package(catkin REQUIRED COMPONENTS
     tf
     )
 
+# 1
+# set(SOURCES
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithm.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/node2d.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/node3d.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/collisiondetection.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/planner.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/path.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/smoother.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/visualize.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/dubins.cpp #Andrew Walker
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/dynamicvoronoi.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/bucketedqueue.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
+#     )
+
+# 2
 set(SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithm.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/node2d.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/node3d.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/collisiondetection.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/planner.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/path.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/smoother.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/visualize.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/dubins.cpp #Andrew Walker
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/dynamicvoronoi.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/bucketedqueue.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
+    src/algorithm.cpp
+    src/node2d.cpp
+    src/node3d.cpp
+    src/collisiondetection.cpp
+    src/planner.cpp
+    src/path.cpp
+    src/smoother.cpp
+    src/visualize.cpp
+    src/dubins.cpp #Andrew Walker
+    src/dynamicvoronoi.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
+    src/bucketedqueue.cpp #Boris Lau, Christoph Sprunk, Wolfram Burgard
     )
+
+# 3
+# file(GLOB SOURCES
+#     "src/*.cpp"
+# )
+# list(REMOVE_ITEM SOURCES "src/main.cpp")
+# list(REMOVE_ITEM SOURCES "src/tf_broadcaster.cpp")
+
 set(HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/include/algorithm.h
     ${CMAKE_CURRENT_SOURCE_DIR}/include/node2d.h

@@ -2,7 +2,7 @@
 #define NODE3D_H
 
 #include <cmath>
-
+#include <iostream>
 #include "constants.h"
 #include "helper.h"
 namespace HybridAStar {

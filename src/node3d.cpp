@@ -39,7 +39,9 @@ bool Node3D::isInRange(const Node3D& goal) const {
   int random = rand() % 10 + 1;
   float dx = std::abs(x - goal.x) / random;
   float dy = std::abs(y - goal.y) / random;
-  return (dx * dx) + (dy * dy) < Constants::dubinsShotDistance;
+  float tmp = (dx * dx) + (dy * dy);
+  // std::cout << "isInRange: " << tmp << " < " << Constants::dubinsShotDistance << "?" << std::endl;
+  return tmp < Constants::dubinsShotDistance;
 }
 
 //###################################################
